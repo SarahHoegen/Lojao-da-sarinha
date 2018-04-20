@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="estilo.css" rel="stylesheet">
+    <title>Loja</title>
+
+</head>
+
+
+<body>
+<h2>Bem vindo ao superlojão</h2><br><br>
+
+
+
+
+
+
+<div>
+    <p>Faça o login em sua conta!</p>
+<?php
+//PRODUTO.PHP=ALGO.PHP
+//$conexão = new PDO("mysql:host=localhost;dbname=3info")
+//$sql='select id_categoria, nome_categoria from categoria order by nome_categoria
+//$result=$conexao->query($sql);
+//foreach ($result as $categoria){
+//echo '<dt>'. $produto['nome_produto'].'</dt>'
+
+
+
+
+
+//    if (isset($_GET['erro']) and $_GET['erro']==1){
+//        echo('<h3>Dados incorretos</h3>');
+//    }
+//?>
+
+<?php
+session_start();
+    if(!isset($_SESSION['login'])){
+
+?>
+<div class="form-login">
+    <form method="post" action="verifica_login.php">
+        <input type="text" name="login">Login<br><br>
+        <input type="password" name="senha">Senha<br><br>
+        <input type="submit">
+    </form>
+</div>
+
+<?php
+    }else{
+?>
+
+        <h3>Bem vindo ao nosso software <?= $_SESSION['login'] ?></h3><br>
+        <a href="logout.phtml">Sair</a>
+
+
+<?php
+    }
+?>
+
+</div>
+
+
+
+<div id="menu">
+
+    <ul>
+                <li> <a href="categoria.php?cat=1">Telefonia</a></li> <br>
+                <li><a HREF="categoria.php?cat=2">Informática</a></li><br>
+                <li><a HREF="categoria.php?cat=3">Eletrodomésticos</a></li><br>
+                <li><a HREF="categoria.php?cat=4">Móveis</a></li><br>
+                <li><a HREF="categoria.php?cat=5">Limpeza</a></li><br>
+                <li><a HREF="categoria.php?cat=6">Esportes</a></li><br>
+
+
+    </ul>
+
+    <form method="post" action="categoria.php">
+        <input type="text" name="busca">
+        <input type="submit">
+    </form>
+
+
+</div>
+
+</body>
+</html>

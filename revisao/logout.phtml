@@ -1,0 +1,17 @@
+<?php
+//function logout()
+//{
+//    session_destroy();
+//    header('Location: index.phtml');
+//}
+////rotas
+//if ($_GET['acao'] == 'login') {
+//    login();
+//}
+//if ($_GET['acao'] == 'sair') {
+//    logout();
+//}
+session_start();
+session_destroy();
+header('Location: index.phtml');
+
