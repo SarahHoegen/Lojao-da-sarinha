@@ -4,3 +4,9 @@
 
     <p>Descrição: <?= $categoria->getDescricao(); ?></p>
 
+    <a href="categoria?acao=alterar">Editar a categoria</a>
+    <br>
+    <a href="categoria?acao=excluir">Excluir a categoria</a>
+
+
+
