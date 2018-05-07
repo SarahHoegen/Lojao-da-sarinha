@@ -4,9 +4,9 @@
 
     <p>Descrição: <?= $categoria->getDescricao(); ?></p>
 
-    <a href="categoria?acao=alterar">Editar a categoria</a>
+    <a href="categorias.php?acao=alterar&id=<?= $categoria->getId(); ?>">Editar a categoria</a>
     <br>
-    <a href="categoria?acao=excluir">Excluir a categoria</a>
+    <a href="categorias.php?acao=excluir&id=<?= $categoria->getId(); ?>">Excluir a categoria</a>
 
 
 

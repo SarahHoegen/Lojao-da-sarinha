@@ -7,7 +7,7 @@
 
 <body>
 
-<p>nao entendi nada</p>
+<p>nao consigo ler nada</p>
 
 </body>
 

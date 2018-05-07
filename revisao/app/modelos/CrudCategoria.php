@@ -71,14 +71,21 @@ class CrudCategoria
     }
 
 
-    public function updateCategoria(Categoria $cat, $id_categoria)
+    public function updateCategoria(Categoria $cat)
     {
 
         $this->conexao = DBConnection::getConexao();
+        $id_categoria = $cat->getId();
         $nome = $cat->getNome();
         $descricao = $cat->getDescricao();
-        $sql = "update categoria set nome_categoria= '$nome',descricao_categoria='$descricao' where id_categoria ='$id_categoria'";
-        $this->conexao->exec($sql);
+        $sql = "update categoria set nome_categoria= '$nome',descricao_categoria='$descricao' where id_categoria =$id_categoria";
+        try{
+            $res = $this->conexao->exec($sql);
+            return $res;
+        }catch (PDOException $erro){
+            return $erro->getMessage();
+
+        }
 
 
     }
@@ -89,13 +96,17 @@ class CrudCategoria
 
         $this->conexao = DBConnection::getConexao();
         $sql = "delete from categoria where id_categoria=" . $id_categoria;
-        $this->conexao->exec($sql);
+        echo $sql;
+        try{
+            $res = $this->conexao->exec($sql);
+            return $res;
+        }catch (PDOException $erro){
+            return $erro->getMessage();
+
+        }
 
     }
 }
 
-//$novacat= new Categoria(null,'alpaca','são fofas');
-$crud = new CrudCategoria();
-//$crud->insertCategoria($novacat);
-$crud->deleteCategoria(9);
+
 
